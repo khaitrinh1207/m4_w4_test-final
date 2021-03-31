@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View nation</title>
+</head>
+<body>
+<center>
+    <a href="/nation"> Back to the list nation</a>
+    <div>
+        <form action="#" th:object="${nation}">
+            <table>
+                <tr>
+                    <h1><span th:text="${nation.name}"></span> nation</h1>
+                </tr>
+            </table>
+        </form>
+        <a th:href="@{/edit-nation/__${nation.id}__}">Edit</a>
+        <a th:href="@{/delete-nation/__${nation.id}__}">Delete</a>
+    </div>
+</center>
+</body>
+</html>

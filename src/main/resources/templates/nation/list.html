@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List nation</title>
+</head>
+<body>
+<center>
+<div th:if="${message}">
+    <p th:text="${message}" style="color:green;"></p>
+</div>
+
+<h1>Nations</h1>
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name nation</th>
+    </tr>
+    <th:block th:each="n : ${list}">
+        <tr>
+            <td th:text="${n.id}"></td>
+            <td th:text="${n.name}"></td>
+            <td><a th:href="@{/edit-nation/__${n.id}__ }">Edit</a></td>
+            <td><a th:href="@{/delete-nation/__${n.id}__ }">Delete</a></td>
+        </tr>
+    </th:block>
+</table>
+<a href="/create-nation">Create new nation</a><br>
+</center>
+</body>
+</html>

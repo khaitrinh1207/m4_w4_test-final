@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create nation</title>
+</head>
+<body>
+<center>
+<h1>Create Nation</h1>
+<p>
+    <a href="/nation">Nation list</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}" style="color:green;"></p>
+</th:block>
+<form th:action="@{/create-nation}" th:object="${nation}" method="post">
+    <table>
+        <tr>
+            <input type="hidden" th:field="*{id}">
+        </tr>
+        <tr>
+            <td>Nation Name : </td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create nation"></td>
+        </tr>
+    </table>
+</form>
+</center>
+</body>
+</html>
